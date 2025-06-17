@@ -14,12 +14,69 @@ const CONFIG = {
 let currentImageIndex = 0;
 let currentRepoImages = [];
 
-// Import other images similarly or use the URL constructor for dynamic imports
+// Map GitHub repo names to projectImages keys
+function getProjectImagesKey(repoName) {
+    switch (repoName) {
+        case 'RidersHub':
+            return 'RidersHub';
+        case 'FreeFallSimulations':
+            return 'FreeFallSimulations';
+        case 'OnlyJobsWeb':
+            return 'OnlyJobsWeb';
+        default:
+            return repoName;
+    }
+}
 
-// Then update your projectImages object
+// Project features for each project
+const projectFeatures = {
+    'RidersHub': [
+        {
+            title: "1. Geospatial & Mapping",
+            details: [
+                "Haversine + PostGIS: Calculated straight‑line distances point A to point B"
+            ]
+        },
+        {
+            title: "2. Security",
+            details: [
+                "JWT (JSON Web Tokens): Issued and validated tokens for token‑based user sessions."
+            ]
+        },
+        {
+            title: "3. Backend Architecture & API Design",
+            details: [
+                "Spring Boot (MVC): Structured your code into Controllers, Services, Repositories.",
+                "DTOs (Data Transfer Objects): Created lightweight objects to pass only the needed data between client and server with validation.",
+                "RESTful Endpoints: Designed and exposed resource‑oriented HTTP APIs with spring security for authorization and authentication.",
+                "Postman Testing: sent requests, inspected responses, and debugged API flows."
+            ]
+        },
+        {
+            title: "4. Data Persistence",
+            details: [
+                "JPA/Hibernate + PostgreSQL: Modeled entities, wrote queries, and let Hibernate manage the SQL under the hood."
+            ]
+        },
+        {
+            title: "5. Third‑Party Integrations",
+            details: [
+                "Nominatim Geocoding API: Converted user‑entered addresses into latitude/longitude coordinates and convert it to barangay name using psgc datasets.",
+                "Bucket4j Rate‑Limiting: Throttled API calls to Nominatim so you stay within Nominatim usage policy policy.",
+                "Cloudinary: Uploaded, stored, and served rider map snapshots.",
+                "Mapbox Static Images API: Generated and captured map snapshots of rider locations for quick visual previews."
+            ]
+        }
+    ],
+    "OnlyJobsWeb": [
+        { title: "1. Job Board Platform", details: ["Developed a web application for posting and searching job listings."] }
+    ],
+    "FreeFallSimulations": [
+        { title: "1. Physics Simulation", details: ["Created a tool to visualize and analyze free fall motion scenarios."] }
+    ]
+};
 const projectImages = {
     'RidersHub': [
-
         'src/assets/rider/rideui1.png',
         'src/assets/rider/rideui2.png',
         'src/assets/rider/rideui3.png',
@@ -29,15 +86,17 @@ const projectImages = {
         'src/assets/rider/rideui7.png',
         'src/assets/rider/rideui8.png',
     ],
-    'FreeFall Simulations': [
-        'src/assets/freefall/riders-hub-3.jpg',
-
+    'FreeFallSimulations': [
+        // Add images if available
     ],
-    'OnlyJobs Web': [
-        'src/assets/onlyjobs/riders-hub-3.jpg',
-
+    'OnlyJobsWeb': [
+        'src/assets/onlyjobs/2nd.png',
+        'src/assets/onlyjobs/4.png',
+        'src/assets/onlyjobs/5s.png',
+        'src/assets/onlyjobs/55.png',
     ]
 };
+
 // Initialize once DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     const username = 'Leyaaaan1';
@@ -51,13 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initRepoTabs();
 
     // Add image navigation listeners
-    document.getElementById('prev-image-btn').addEventListener('click', prevProjectImage);
-    document.getElementById('next-image-btn').addEventListener('click', nextProjectImage);
-
-    // Add smooth scrolling for anchor links
-;
+    const prevBtn = document.getElementById('prev-image-btn');
+    const nextBtn = document.getElementById('next-image-btn');
+    if (prevBtn) prevBtn.addEventListener('click', prevProjectImage);
+    if (nextBtn) nextBtn.addEventListener('click', nextProjectImage);
 });
-
 async function fetchGitHubRepositories() {
     const reposElement = document.querySelector('.github-repos');
     if (!reposElement) return;
@@ -65,7 +122,7 @@ async function fetchGitHubRepositories() {
     reposElement.innerHTML = '<div class="loading">Loading repositories...</div>';
 
     const repoLinks = [
-        'https://github.com/Leyaaaan1/RidersHub',  // Make sure this is first to be featured
+        'https://github.com/Leyaaaan1/RidersHub',
         'https://github.com/Leyaaaan1/FreeFallSimulations',
         'https://github.com/bakaraw/OnlyJobsWeb',
         'https://github.com/bakaraw/QuizWebsite',
@@ -133,10 +190,8 @@ async function fetchGitHubRepositories() {
 
 // Populate the featured repository section
 async function populateFeaturedRepository(repoInfo) {
-    // Update basic repository information
     document.getElementById('project-title').textContent = repoInfo.name || 'Unknown Project';
-    document.getElementById('project-description').textContent = repoInfo.description || 'No description available';
-    document.getElementById('project-stars').textContent = `⭐ ${repoInfo.stargazers_count || 0}`;
+    document.getElementById('project-description').textContent = repoInfo.description || 'No description available';    document.getElementById('project-stars').textContent = `⭐ ${repoInfo.stargazers_count || 0}`;
     document.getElementById('project-forks').textContent = `🍴 ${repoInfo.forks_count || 0}`;
 
     const updatedAt = new Date(repoInfo.updated_at);
@@ -147,9 +202,6 @@ async function populateFeaturedRepository(repoInfo) {
     });
     document.getElementById('project-updated').textContent = `Updated: ${formattedDate}`;
 
-    // Update repository link
-
-
     // Update technology tags
     const techElement = document.getElementById('project-tech');
     if (techElement && repoInfo.topLanguages) {
@@ -158,8 +210,11 @@ async function populateFeaturedRepository(repoInfo) {
         ).join('');
     }
 
-    // Load project images
-    loadProjectImages(repoInfo.name);
+    // Load project images (fixed)
+    loadProjectImages(getProjectImagesKey(repoInfo.name));
+
+    // Update project features
+    updateProjectFeaturesUI(getProjectImagesKey(repoInfo.name));
 
     // Fetch and display README content
     try {
@@ -169,14 +224,50 @@ async function populateFeaturedRepository(repoInfo) {
 
         if (readmeResponse.ok) {
             const readmeData = await readmeResponse.json();
-            const readmeContent = atob(readmeData.content); // Decode base64 content
+            const readmeContent = atob(readmeData.content);
 
-            // Display README content
-            document.getElementById('project-readme').innerHTML = `<div class="readme-content">${readmeContent}</div>`;
+            // Use GitHub's API to render the markdown
+            const renderResponse = await fetch('https://api.github.com/markdown', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {})
+                },
+                body: JSON.stringify({
+                    text: readmeContent,
+                    mode: 'gfm',
+                    context: `${repoInfo.owner.login}/${repoInfo.name}`
+                })
+            });
+
+            if (renderResponse.ok) {
+                const renderedHTML = await renderResponse.text();
+
+                if (!document.getElementById('github-markdown-css')) {
+                    const style = document.createElement('link');
+                    style.id = 'github-markdown-css';
+                    style.rel = 'stylesheet';
+                    style.href = 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css';
+                    document.head.appendChild(style);
+                }
+
+                document.getElementById('project-readme').innerHTML = `
+                    <div class="readme-content markdown-body">
+                        ${renderedHTML}
+                    </div>
+                `;
+
+                fixReadmeLinks(document.getElementById('project-readme'), repoInfo.owner.login, repoInfo.name);
+            } else {
+                throw new Error('Failed to render markdown');
+            }
         }
     } catch (error) {
         console.error('Error fetching README:', error);
-        document.getElementById('project-readme').innerHTML = '<p class="readme-content">Unable to load README content.</p>';
+        const readmeElem = document.getElementById('project-readme');
+        if (readmeElem) {
+            readmeElem.innerHTML = '<p class="readme-content">Unable to load README content.</p>';
+        }
     }
 }
 
@@ -342,7 +433,7 @@ async function loadRepositoryData(repoIndex) {
                 const langs = await langRes.json();
                 topLanguages = Object.entries(langs)
                     .sort((a, b) => b[1] - a[1])
-                    .map(([lang]) => lang); // Removed .slice(0, 2) to include all languages
+                    .map(([lang]) => lang);
             }
 
             repoInfo.topLanguages = topLanguages;
@@ -368,7 +459,7 @@ function updateRepositoryUI(repoInfo) {
     if (projectLink && repoInfo.html_url) {
         projectLink.href = repoInfo.html_url;
     }
-
+    updateProjectFeaturesUI(repoInfo.name);
     const updatedAt = new Date(repoInfo.updated_at);
     const formattedDate = updatedAt.toLocaleDateString('en-US', {
         year: 'numeric',
@@ -385,8 +476,10 @@ function updateRepositoryUI(repoInfo) {
         ).join('');
     }
 
-    // Load project images instead of resetProjectImages (which was undefined)
-    loadProjectImages(repoInfo.name);
+    // Load project images (fixed)
+    loadProjectImages(getProjectImagesKey(repoInfo.name));
+    updateProjectFeaturesUI(getProjectImagesKey(repoInfo.name));
+
 }
 
 // Fetch README content
@@ -398,7 +491,7 @@ async function fetchReadmeContent(owner, repoName) {
 
         if (readmeResponse.ok) {
             const readmeData = await readmeResponse.json();
-            const readmeContent = atob(readmeData.content); // Decode base64 content
+            const readmeContent = atob(readmeData.content);
 
             // Use GitHub's API to render the markdown
             const renderResponse = await fetch('https://api.github.com/markdown', {
@@ -409,7 +502,7 @@ async function fetchReadmeContent(owner, repoName) {
                 },
                 body: JSON.stringify({
                     text: readmeContent,
-                    mode: 'gfm', // GitHub Flavored Markdown
+                    mode: 'gfm',
                     context: `${owner}/${repoName}`
                 })
             });
@@ -417,7 +510,6 @@ async function fetchReadmeContent(owner, repoName) {
             if (renderResponse.ok) {
                 const renderedHTML = await renderResponse.text();
 
-                // Add GitHub markdown styles if they don't exist
                 if (!document.getElementById('github-markdown-css')) {
                     const style = document.createElement('link');
                     style.id = 'github-markdown-css';
@@ -432,7 +524,6 @@ async function fetchReadmeContent(owner, repoName) {
                     </div>
                 `;
 
-                // Fix relative links in README to point to GitHub
                 fixReadmeLinks(document.getElementById('project-readme'), owner, repoName);
             } else {
                 throw new Error('Failed to render markdown');
@@ -444,14 +535,12 @@ async function fetchReadmeContent(owner, repoName) {
     }
 }
 
-// Helper function to fix relative links in README
 function fixReadmeLinks(readmeElement, owner, repoName) {
     const links = readmeElement.querySelectorAll('a');
     const images = readmeElement.querySelectorAll('img');
     const baseUrl = `https://github.com/${owner}/${repoName}/blob/main/`;
     const rawBaseUrl = `https://raw.githubusercontent.com/${owner}/${repoName}/main/`;
 
-    // Fix links
     links.forEach(link => {
         const href = link.getAttribute('href');
         if (href && !href.startsWith('http') && !href.startsWith('#')) {
@@ -459,31 +548,27 @@ function fixReadmeLinks(readmeElement, owner, repoName) {
         }
     });
 
-    // Fix images
     images.forEach(img => {
         const src = img.getAttribute('src');
         if (src && !src.startsWith('http')) {
             img.src = rawBaseUrl + src;
         }
     });
-}// Change to a specific project image
+}
+
 function changeProjectImage(index) {
     if (!currentRepoImages || currentRepoImages.length === 0) return;
 
-    // Make sure index is within bounds
     if (index < 0) index = currentRepoImages.length - 1;
     if (index >= currentRepoImages.length) index = 0;
 
     currentImageIndex = index;
 
-    // Update main image
     const mainImage = document.getElementById('project-main-image');
     const placeholder = document.getElementById('project-image-placeholder');
 
-    // Set new image source
     mainImage.src = currentRepoImages[index];
 
-    // Handle image loading
     mainImage.onload = function() {
         mainImage.style.display = 'block';
         placeholder.style.display = 'none';
@@ -499,7 +584,6 @@ function changeProjectImage(index) {
         `;
     };
 
-    // Update thumbnails active state
     const thumbnails = document.querySelectorAll('.thumbnail-placeholder');
     thumbnails.forEach((thumb, i) => {
         if (i === index) {
@@ -509,21 +593,18 @@ function changeProjectImage(index) {
         }
     });
 }
-// Navigate to previous project image
+
 function prevProjectImage() {
     changeProjectImage(currentImageIndex - 1);
 }
 
-// Navigate to next project image
 function nextProjectImage() {
     changeProjectImage(currentImageIndex + 1);
 }
 
-// Update the loadProjectImages function
 function loadProjectImages(repoName) {
     const images = projectImages[repoName];
 
-    // If no images for this repo, hide the image container and show placeholder
     if (!images || images.length === 0) {
         const mainImage = document.getElementById('project-main-image');
         const placeholder = document.getElementById('project-image-placeholder');
@@ -538,27 +619,21 @@ function loadProjectImages(repoName) {
         return;
     }
 
-    // Store current repo images for navigation
     currentRepoImages = images;
     currentImageIndex = 0;
 
-    // Update main image
     const mainImage = document.getElementById('project-main-image');
     const placeholder = document.getElementById('project-image-placeholder');
 
-    // Set the image source and alt text
     mainImage.src = images[0];
     mainImage.alt = `${repoName} screenshot`;
 
-    // Add error handling for image loading
     mainImage.onload = function() {
-        // Image loaded successfully - show it and hide placeholder
         mainImage.style.display = 'block';
         placeholder.style.display = 'none';
     };
 
     mainImage.onerror = function() {
-        // Image failed to load - keep placeholder visible and log error
         console.error(`Failed to load image: ${images[0]}`);
         mainImage.style.display = 'none';
         placeholder.style.display = 'flex';
@@ -568,23 +643,18 @@ function loadProjectImages(repoName) {
         `;
     };
 
-    // Clear and update thumbnails
     const thumbnailsContainer = document.getElementById('project-thumbnails');
+    if (!thumbnailsContainer) return;
+
     thumbnailsContainer.innerHTML = '';
 
-    // Create thumbnails for each image
     images.forEach((img, index) => {
         const thumb = document.createElement('div');
         thumb.className = index === 0 ? 'thumbnail-placeholder active' : 'thumbnail-placeholder';
         thumb.textContent = `Image ${index + 1}`;
-
-        // Add click event to switch to this image
         thumb.addEventListener('click', () => changeProjectImage(index));
-
         thumbnailsContainer.appendChild(thumb);
     });
-
-    // Show/hide navigation buttons based on number of images
     const prevBtn = document.getElementById('prev-image-btn');
     const nextBtn = document.getElementById('next-image-btn');
 
@@ -596,5 +666,18 @@ function loadProjectImages(repoName) {
         nextBtn.style.display = 'none';
     }
 }
-
-// Also update the changeProjectImage function to handle image loading properly
+function updateProjectFeaturesUI(projectName) {
+    const features = projectFeatures[projectName] || [];
+    const container = document.getElementById('project-details-container');
+    if (!container) return;
+    if (features.length === 0) {
+        container.innerHTML = `<p>No details available for this project.</p>`;
+        return;
+    }
+    container.innerHTML = features.map(f =>
+        `<div class="project-feature">
+            <h5>${f.title}</h5>
+            ${f.details.map(d => `<p>${d}</p>`).join('')}
+        </div>`
+    ).join('');
+}
