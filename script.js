@@ -1,15 +1,11 @@
-// Imports styles
 
-// GitHub token from environment variable
 const token = import.meta.env.VITE_GITHUB_TOKEN;
 
-// Configuration
 const CONFIG = {
     GITHUB_USERNAME: 'Leyaaaan1',
     API_BASE_URL: 'https://api.github.com'
 };
 
-// Variables to track current image state
 let currentImageIndex = 0;
 let currentRepoImages = [];
 
