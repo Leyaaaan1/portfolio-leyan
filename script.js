@@ -1,7 +1,6 @@
 
 
-const token = '';
-
+const token = import.meta.env.VITE_GITHUB_TOKEN;
 let currentImageIndex = 0;
 let currentRepoImages = [];
 
@@ -144,6 +143,7 @@ async function fetchGitHubRepositories() {
         'https://github.com/bakaraw/OnlyJobs',
         'https://github.com/Leyaaaan1/busnavs'
     ];
+
 
     try {
         const repoData = await Promise.all(
@@ -345,7 +345,7 @@ function displayGitHubRepos(repos, reposElement) {
         reposElement.innerHTML = '<p>No repositories found.</p>';
         return;
     }
-
+    console.log("GitHub Token:", token);
     const reposHTML = repos.map(repo => {
         const updatedAt = new Date(repo.updated_at);
         const formattedDate = updatedAt.toLocaleDateString('en-US', {
@@ -421,6 +421,7 @@ function initRepoTabs() {
 
     // Load the first repository by default
     loadRepositoryData(0);
+    console.log("GitHub Token:", token);
 }
 
 async function loadRepositoryData(repoIndex) {
