@@ -1,7 +1,6 @@
 
 
 const token = import.meta.env.VITE_GITHUB_TOKEN;
-console.log("Token:", token);
 let currentImageIndex = 0;
 let currentRepoImages = [];
 
