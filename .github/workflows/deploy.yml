@@ -4,6 +4,11 @@ on:
     branches: [ master ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -14,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18' # Updated from '16' to '18'
 
       - name: Install Dependencies
         run: npm install
