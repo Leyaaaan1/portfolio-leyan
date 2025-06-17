@@ -1,11 +1,5 @@
 import { defineConfig } from 'vite'
 
-export default defineConfig({
-    base: '/portfolio-leyan/',
-    build: {
-        outDir: 'dist',
-    },
-    server: {
-        port: 3000,
-    }
-});
+export default {
+    base: '/portfolio-leyan/', // replace with your exact GitHub repo name
+};
