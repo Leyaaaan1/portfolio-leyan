@@ -10,26 +10,26 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
-  background: linear-gradient(135deg, #212433 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #212433 0%, #241e2b 100%);
   min-height: 100vh;
+  padding: 100px;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 24px;
 }
 
 /* About Section */
 .about-intro {
   text-align: center;
   margin-bottom: 50px;
-  padding: 80px 20px 60px;
+  padding: 90px 40px 70px;
 }
 
 .about-intro h1 {
   font-size: 3.5rem;
-  margin-bottom: 30px;
   background: linear-gradient(45deg, #ffffff, #ffd3d3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -45,7 +45,6 @@ body {
 
 .about-intro p {
   font-size: 1.2rem;
-  max-width: 900px;
   margin: 0 auto 30px;
   color: #ffffff;
   line-height: 1.8;
@@ -54,7 +53,7 @@ body {
 
 .highlight {
   font-weight: bold;
-  color: #ffd3d3;
+  color: #667eea;
   background: rgba(255, 255, 255, 0.1);
   padding: 3px 8px;
   border-radius: 6px;
@@ -68,18 +67,15 @@ body {
 }
 
 .contact-links {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .contact-links a {
-  color: #ffd3d3;
+  color: #667eea;
   text-decoration: none;
   font-weight: 500;
-  margin: 0 15px;
   padding: 12px 20px;
   border-radius: 25px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   display: inline-block;
@@ -108,10 +104,10 @@ body {
 
 .github-contributions,
 .github-activity {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(20px);
   border-radius: 20px;
-  padding: 30px;
+  padding: 15px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -138,7 +134,7 @@ body {
 
 .github-username {
   font-size: 1.2rem;
-  color: #764ba2;
+  color: #ffffff;
   font-weight: 500;
 }
 
@@ -211,25 +207,19 @@ body {
 
 .stat-number {
   display: block;
-  font-size: 1.4rem;
+  font-size: 2.4rem;
   font-weight: bold;
   color: #667eea;
 }
 
 .stat-label {
-  font-size: 0.85rem;
-  color: #666;
+  font-size: 1rem;
+  color: #f8f8f8;
   margin-top: 2px;
 }
 
 /* GitHub Stats Images */
-.github-stats-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin: 10px 0;
-}
+
 
 .stats-image {
   max-width: 100%;
@@ -244,10 +234,6 @@ body {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Contributions Section */
-.contributions-section {
-  margin: 25px 0;
-}
 
 .contributions-section h4 {
   color: #667eea;
@@ -373,11 +359,12 @@ body {
 }
 
 .github-repo h4 a {
-  color: #667eea;
+  color: #c6ccf1;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
   transition: color 0.3s ease;
+  font-weight: bold;
 }
 
 .github-repo h4 a:hover {
@@ -385,10 +372,11 @@ body {
 }
 
 .github-repo p {
-  color: #666;
+  color: #ffffff;
   margin-bottom: 15px;
   line-height: 1.6;
   font-size: 0.95rem;
+  text-align: justify;
 }
 
 .repo-details {
@@ -396,13 +384,13 @@ body {
   flex-wrap: wrap;
   gap: 12px;
   font-size: 0.85rem;
-  color: #777;
+  color: #667eea;
   align-items: center;
 }
 
 .repo-language {
   background: linear-gradient(45deg, #667eea, #764ba2);
-  color: white;
+  color: #ffffff;
   padding: 4px 12px;
   border-radius: 15px;
   font-size: 0.8rem;
@@ -430,6 +418,12 @@ body {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 50px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+}
+.section-title-github {
+  text-align: center;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   font-weight: 700;
@@ -480,6 +474,7 @@ body {
   margin-top: 1.5rem;
   flex: 1 1 50%;
   min-width: 0;
+
 }
 .repo-readme-section {
   height: 100%;
@@ -1080,7 +1075,7 @@ html {
 
 .cert-name {
   font-weight: bold;
-  color: #ffd3d3;
+  color: #667eea;
   font-size: 1.1rem;
 }
 

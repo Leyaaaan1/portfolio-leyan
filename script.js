@@ -312,10 +312,10 @@ async function updateGitHubProfileSection(username) {
             if (profileInfoElement) {
                 profileInfoElement.innerHTML = `
       <div class="github-profile-header fade-in" style="display: flex; gap: 24px; align-items: flex-start;">
-        <img src="${userData.avatar_url}" alt="${userData.name || userData.login}" class="github-avatar" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover;">
+        <img src="${userData.avatar_url}" alt="${userData.name || userData.login}" class="github-avatar" style="width: 96px;  color: #fff; height: 96px; border-radius: 50%; object-fit: cover;">
         <div style="flex: 1;">
-          <h4 style="margin: 0 0 4px 0;">${userData.name || userData.login}</h4>
-          <p class="github-username" style="margin: 0 0 8px 0;">@${userData.login}</p>
+          <h4 style="margin: 0 0 4px 0;  color: #667eea;">${userData.name || userData.login}</h4>
+          <p class="github-username" style="margin: 0 0 8px 0;  color: #fff;">@${userData.login}</p>
           <div class="github-stats" style="display: flex; flex-direction: column; gap: 8px;">
           <div class="github-stat">
             <span class="stat-number">${userData.public_repos}</span>
@@ -331,11 +331,13 @@ async function updateGitHubProfileSection(username) {
           </div>
         </div>
         </div>
-            <div class="github-stats-container" style="display: flex; flex-direction: column; gap: 8px; min-width: 300px;">
+            <div class="github-stats-container" style="display: flex; flex-direction: column; gap: 4px; min-width: 500px;">
               <img src="https://github-readme-stats.vercel.app/api?username=Leyaaaan1&show_icons=true&theme=radical&locale=en"
-                   alt="Leyaaaan1 GitHub stats" class="stats-image" style="width: 100%; min-width: 280px; max-width: 400px;" />
+                   alt="Leyaaaan1 GitHub stats" class="stats-image"
+                   style="width: 100%; min-width: 280px; max-width: 500px; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.12);" />
               <img src="https://github-readme-streak-stats.herokuapp.com/?user=Leyaaaan1&theme=radical"
-                   alt="Leyaaaan1 streak stats" class="stats-image" style="width: 100%; min-width: 280px; max-width: 400px;" />
+                   alt="Leyaaaan1 streak stats" class="stats-image"
+                   style="width: 100%; min-width: 280px; max-width: 500px; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.12);" />
             </div>
           </div>
         `;
