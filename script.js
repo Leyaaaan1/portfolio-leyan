@@ -100,23 +100,23 @@ img.src = 'src/freefall/freefall.gif';
 img.style.display = 'block';
 const projectImages = {
     'RidersHub': [
-        'src/assets/rider/rideui1.png',
-        'src/assets/rider/rideui2.png',
-        'src/assets/rider/rideui3.png',
-        'src/assets/rider/rideui4.png',
-        'src/assets/rider/rideui5.png',
-        'src/assets/rider/rideui6.png',
-        'src/assets/rider/rideui7.png',
-        'src/assets/rider/rideui8.png',
+        'public/rider/rideui1.png',
+        'public/rider/rideui2.png',
+        'public/rider/rideui3.png',
+        'public/rider/rideui4.png',
+        'public/rider/rideui5.png',
+        'public/rider/rideui6.png',
+        'public/rider/rideui7.png',
+        'public/rider/rideui8.png',
     ],
     'FreeFallSimulations': [
-        'src/assets/freefall/freefall.gif',
+        'public/freefall/freefall.gif',
     ],
     'OnlyJobsWeb': [
-        'src/assets/onlyjobs/2nd.png',
-        'src/assets/onlyjobs/55.png',
-        'src/assets/onlyjobs/4.png',
-        'src/assets/onlyjobs/5s.png',
+        'public/onlyjobs/2nd.png',
+        'public/onlyjobs/55.png',
+        'public/onlyjobs/4.png',
+        'public/onlyjobs/5s.png',
     ]
 };
 
