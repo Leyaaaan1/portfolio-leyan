@@ -1,7 +1,8 @@
 // Imports styles
 
 // GitHub token from environment variable
-const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
+const token = import.meta.env.VITE_GITHUB_TOKEN;
+
 // Configuration
 const CONFIG = {
     GITHUB_USERNAME: 'Leyaaaan1',
@@ -95,7 +96,7 @@ const projectFeatures = {
     ]
 };
 const img = document.getElementById('project-main-image');
-img.src = 'src/freefall/freefall.gif';
+img.src = 'public/freefall/freefall.gif';
 img.style.display = 'block';
 const projectImages = {
     'RidersHub': [
@@ -160,14 +161,14 @@ async function fetchGitHubRepositories() {
                 const owner = match[1];
                 const repo = match[2];
                 const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
-                    headers: GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}
+                    headers: token ? { Authorization: `token ${token}` } : {}
                 });
                 if (!response.ok) return null;
                 const repoInfo = await response.json();
 
                 // Fetch languages
                 const langRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/languages`, {
-                    headers: GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}
+                    headers: token ? { Authorization: `token ${token}` } : {}
                 });
                 let topLanguages = [];
                 if (langRes.ok) {
@@ -240,7 +241,7 @@ async function populateFeaturedRepository(repoInfo) {
     // Fetch and display README content
     try {
         const readmeResponse = await fetch(`https://api.github.com/repos/${repoInfo.owner.login}/${repoInfo.name}/readme`, {
-            headers: GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}
+            headers: token ? { Authorization: `token ${token}` } : {}
         });
 
         if (readmeResponse.ok) {
@@ -252,7 +253,7 @@ async function populateFeaturedRepository(repoInfo) {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    ...(GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {})
+                    ...(token ? { Authorization: `token ${token}` } : {})
                 },
                 body: JSON.stringify({
                     text: readmeContent,
@@ -298,7 +299,7 @@ async function updateGitHubProfileSection(username) {
 
     try {
         const userResponse = await fetch(`https://api.github.com/users/${username}`, {
-            headers: GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}
+            headers: token ? { Authorization: `token ${token}` } : {}
         });
 
         if (userResponse.ok) {
@@ -439,7 +440,7 @@ async function loadRepositoryData(repoIndex) {
     try {
         // Fetch repository data
         const response = await fetch(`https://api.github.com/repos/${owner}/${repoName}`, {
-            headers: GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}
+            headers: token ? { Authorization: `token ${token}` } : {}
         });
 
         if (response.ok) {
@@ -447,7 +448,7 @@ async function loadRepositoryData(repoIndex) {
 
             // Fetch languages
             const langRes = await fetch(`https://api.github.com/repos/${owner}/${repoName}/languages`, {
-                headers: GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}
+                headers: token ? { Authorization: `token ${token}` } : {}
             });
 
             let topLanguages = [];
@@ -507,7 +508,7 @@ function updateRepositoryUI(repoInfo) {
 async function fetchReadmeContent(owner, repoName) {
     try {
         const readmeResponse = await fetch(`https://api.github.com/repos/${owner}/${repoName}/readme`, {
-            headers: GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}
+            headers: token ? { Authorization: `token ${token}` } : {}
         });
 
         if (readmeResponse.ok) {
@@ -519,7 +520,7 @@ async function fetchReadmeContent(owner, repoName) {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    ...(GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {})
+                    ...(token ? { Authorization: `token ${token}` } : {})
                 },
                 body: JSON.stringify({
                     text: readmeContent,
