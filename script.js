@@ -330,10 +330,12 @@ async function updateGitHubProfileSection(username) {
               <img src="https://github-readme-stats.vercel.app/api?username=Leyaaaan1&show_icons=true&theme=radical&locale=en"
                    alt="Leyaaaan1 GitHub stats" class="stats-image"
                    style="width: 100%; min-width: 280px; max-width: 500px; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.12);" />
-              <img src="https://github-readme-streak-stats.herokuapp.com/?user=Leyaaaan1&theme=radical"
+            
+              <img src="https://streak-stats.demolab.com/?user=Leyaaaan1&theme=radical"
                    alt="Leyaaaan1 streak stats" class="stats-image"
                    style="width: 100%; min-width: 280px; max-width: 500px; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.12);" />
             </div>
+
           </div>
         `;
             }
