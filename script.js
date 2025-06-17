@@ -1,9 +1,8 @@
 // Imports styles
-import '/src/style.css';
+import './src/style.css';
 
 // GitHub token from environment variable
-const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN || '';
-
+const token = import.meta.env.VITE_GITHUB_TOKEN;
 // Configuration
 const CONFIG = {
     GITHUB_USERNAME: 'Leyaaaan1',
