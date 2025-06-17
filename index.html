@@ -4,6 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leandro Paninsoro - Portfolio</title>
+
+  <style>
+    /* Critical CSS for immediate rendering */
+    body {
+      visibility: hidden;
+    }
+    .js-loaded body {
+      visibility: visible;
+    }
+  </style>
+
+  <script>
+    // This runs immediately
+    document.documentElement.classList.add('js-loaded');
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -176,7 +191,7 @@
             <span id="project-stars">⭐ 0</span>
             <span id="project-forks">🍴 0</span>
             <span id="project-updated">Updated: -</span>
-          </div>1
+          </div>
           <div class="project-info-row">
 
             <div class="project-main-image-container">
@@ -210,7 +225,6 @@
         </div>
         </div>
       </div>
-    </div>
   </section>
 
 <style>

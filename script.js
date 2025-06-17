@@ -1,5 +1,5 @@
 // Imports styles
-import '/src/style.css';
+import '/style.css';
 
 // GitHub token from environment variable
 const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN || '';
@@ -314,7 +314,7 @@ async function updateGitHubProfileSection(username) {
       <div class="github-profile-header fade-in" style="display: flex; gap: 24px; align-items: flex-start;">
         <img src="${userData.avatar_url}" alt="${userData.name || userData.login}" class="github-avatar" style="width: 96px;  color: #fff; height: 96px; border-radius: 50%; object-fit: cover;">
         <div style="flex: 1;">
-          <h4 style="margin: 0 0 4px 0;  color: #667eea;">${userData.name || userData.login}</h4>
+          <h4 style="margin: 0 0 4px 0;  color: #fff;">${userData.name || userData.login}</h4>
           <p class="github-username" style="margin: 0 0 8px 0;  color: #fff;">@${userData.login}</p>
           <div class="github-stats" style="display: flex; flex-direction: column; gap: 8px;">
           <div class="github-stat">
