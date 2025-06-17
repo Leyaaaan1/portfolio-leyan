@@ -591,6 +591,7 @@ function changeProjectImage(index) {
     currentImageIndex = index;
 
     const mainImage = document.getElementById('project-main-image');
+
     const placeholder = document.getElementById('project-image-placeholder');
 
     mainImage.src = currentRepoImages[index];

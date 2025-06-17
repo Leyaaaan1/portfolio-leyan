@@ -23,7 +23,6 @@
       <a href="tel:+639692020569">📱 +63 9692 020569</a>
     </div>
   </div>
-  <div class="about-columns">
     <div class="about-left">
       <p>
         Aspiring backend developer skilled in <span class="highlight">Java (Spring)</span> and <span class="highlight">PHP (Laravel)</span>, focusing on <span class="highlight">API design</span> and <span class="highlight">system integration</span>.
@@ -101,15 +100,12 @@
                 <img src="src/assets/ITS-Badges.png" alt="IT Specialist Java Badge">
               </div>
             </li>
-            <!-- Add more certificates as needed -->
           </ul>
         </div>
       </div>
     </div>
   </div>
-</div>
-        </div>
-      </div>
+
   <h2 class="section-title-github">GitHub Overview</h2>
   <div class="github-profile-btn-container" style="margin: 16px 0;">
     <a href="https://github.com/Leyaaaan1" target="_blank" class="github-profile-btn" style="display: flex; align-items: center; justify-content: center; background: #181717; color: #fff;  border-radius: 25px; text-decoration: none; font-weight: 600; transition: background 0.2s; margin: 0 auto; width: fit-content;">
@@ -184,24 +180,20 @@
           <div class="project-info-row">
 
             <div class="project-main-image-container">
-              <div class="image-viewer">
-                <img id="project-main-image" class="project-image" src="" alt="Project screenshot" style="display: none;" />
-                <div id="project-image-placeholder" class="project-placeholder">
-                  <h3>Project</h3>
-                  <p>Loading project screenshots...</p>
-                </div>
-                <div class="image-controls">
-                  <button class="project-nav nav-prev" id="prev-image-btn">‹</button>
-                  <button class="project-nav nav-next" id="next-image-btn">›</button>
-                </div>
+              <img id="project-main-image" class="project-image" style="display: none; width: 100%; max-width: 1000px; height: auto;"  alt=""/>
+              <div id="project-image-placeholder" class="project-placeholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <h3>Project</h3>
+                <p>Loading project screenshots...</p>
               </div>
-
-
+              <div class="image-controls">
+                <button class="project-nav nav-prev" id="prev-image-btn" style="color: #1976d2; font-size: 5rem;">‹</button>
+                <button class="project-nav nav-next" id="next-image-btn" style="color: #1976d2; font-size: 5rem;">›</button>
+              </div>
             </div>
 
             <div class="description-column">
               <div class="repo-description-section">
-                <h4>What I Learned:</h4>
+                <h1>What I Learned:</h1>
                 <div id="project-details-container" class="repo-description-content scrollable">
                   <!-- Project-specific features will be injected here by script.js -->
                 </div>
@@ -209,10 +201,8 @@
             </div>
         </div>
 
-        <!-- Right column: README content -->
-        <div class="readme-column">
-          <div class="repo-readme-section">
             <h4>README</h4>
+          <div class="readme-content markdown-body" style="min-height: 600px;">
             <div id="project-readme" class="repo-readme-content scrollable">
               <p class="readme-content">Loading README content...</p>
             </div>
