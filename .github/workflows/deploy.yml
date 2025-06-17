@@ -11,6 +11,10 @@ permissions:
 
 jobs:
   build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,4 +42,5 @@ jobs:
           path: 'dist'
 
       - name: Deploy
-        uses: actions/deploy-pages@v2
+        id: deployment
+        uses: actions/deploy-pages@v3
