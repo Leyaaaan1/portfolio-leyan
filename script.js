@@ -69,12 +69,36 @@ const projectFeatures = {
         }
     ],
     "OnlyJobsWeb": [
-        { title: "1. Job Board Platform", details: ["Developed a web application for posting and searching job listings."] }
+        {
+            title: "Online Job-Matching Platform for Agency Company",
+            details: [
+                "<b>Full-Stack Web Application:</b> Streamlined candidate screening and automated job application processes.",
+                "<b>End-to-End Routing & Integration:</b> Defined Laravel routes and connected React frontend components with backend API endpoints for seamless client-server interaction.",
+                "<b>Admin Dashboard & CRUD:</b> Built 10+ CRUD endpoints for job posts and admin features, including form validations, document uploads via Cloudinary API, and PDF export.",
+            ],
+        }
     ],
     "FreeFallSimulations": [
-        { title: "1. Physics Simulation", details: ["Created a tool to visualize and analyze free fall motion scenarios."] }
+        {
+            title: "<b>1. Physics Simulation</b>",
+            details: [
+                "Created a tool to visualize and analyze <b>free fall motion</b> scenarios.",
+                "Simulates free fall on different planets with varying <b>gravitational acceleration</b>.",
+                "Uses <b>kinematic equations</b> to calculate fall time and final velocity."
+            ]
+        },
+        {
+            title: "<b>2. Data Visualization & UI</b>",
+            details: [
+                "Visualizes real-time motion, velocity, and comparative data with <b>dynamic charts</b>.",
+                "Interactive UI built with <b>Pygame</b> for smooth animations and user input."
+            ]
+        }
     ]
 };
+const img = document.getElementById('project-main-image');
+img.src = 'src/freefall/freefall.gif';
+img.style.display = 'block';
 const projectImages = {
     'RidersHub': [
         'src/assets/rider/rideui1.png',
@@ -87,7 +111,7 @@ const projectImages = {
         'src/assets/rider/rideui8.png',
     ],
     'FreeFallSimulations': [
-        // Add images if available
+        'src/assets/freefall/freefall.gif',
     ],
     'OnlyJobsWeb': [
         'src/assets/onlyjobs/2nd.png',
