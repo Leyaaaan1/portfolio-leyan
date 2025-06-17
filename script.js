@@ -2,7 +2,7 @@
 import './public/style.css';
 
 // GitHub token from environment variable
-const token = import.meta.env.VITE_GITHUB_TOKEN;
+const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 // Configuration
 const CONFIG = {
     GITHUB_USERNAME: 'Leyaaaan1',
