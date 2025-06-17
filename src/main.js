@@ -1,6 +1,13 @@
 
 
-const token = import.meta.env.VITE_GITHUB_TOKEN;
+const token = globalThis.__GITHUB_TOKEN__ || null;
+
+
+if (!token) {
+    console.warn('GitHub token not available. Some features may not work.');
+}
+
+
 let currentImageIndex = 0;
 let currentRepoImages = [];
 
