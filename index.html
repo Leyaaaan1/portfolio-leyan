@@ -6,7 +6,6 @@
   <title>Leandro Paninsoro - Portfolio</title>
 
   <style>
-    /* Critical CSS for immediate rendering */
     body {
       visibility: hidden;
     }
@@ -16,7 +15,6 @@
   </style>
 
   <script>
-    // This runs immediately
     document.documentElement.classList.add('js-loaded');
   </script>
   <link rel="stylesheet" href="style.css">
@@ -121,16 +119,17 @@
     </div>
   </div>
 
-  <h2 class="section-title-github">GitHub Overview</h2>
-  <div class="github-profile-btn-container" style="margin: 16px 0;">
-    <a href="https://github.com/Leyaaaan1" target="_blank" class="github-profile-btn" style="display: flex; align-items: center; justify-content: center; background: #181717; color: #fff;  border-radius: 25px; text-decoration: none; font-weight: 600; transition: background 0.2s; margin: 0 auto; width: fit-content;">
-      <img src="src/assets/language/GitHub-181717.svg" alt="GitHub" style="height: 20px; vertical-align: middle; margin-right: 8px;">
-      Visit me.
-    </a>
-  </div>
 
+<h2 class="section-title-github">GitHub Overview</h2>
+<div class="github-profile-btn-container" style="margin: 16px 0;">
+  <a href="https://github.com/Leyaaaan1" target="_blank" class="github-profile-btn" style="display: flex; align-items: center; justify-content: center; background: #181717; color: #fff;  border-radius: 25px; text-decoration: none; font-weight: 600; transition: background 0.2s; margin: 0 auto; width: fit-content;">
+    <img src="src/assets/language/GitHub-181717.svg" alt="GitHub" style="height: 20px; vertical-align: middle; margin-right: 8px;">
+    Visit me.
+  </a>
+</div>
 
 <div class="github-content" id="github-section">
+
   <!-- Left Column: Profile and Contributions -->
   <div class="left-column">
     <div class="github-contributions">
@@ -154,7 +153,7 @@
   <div class="right-column">
     <div class="github-activity">
       <div class="repo-header">
-        <h3>GitHub Recent Repositories <a href="https://github.com/Leyaaaan1?tab=repositories" target="_blank" class="view-all-btn">View all</a></h3>
+        <h3>GitHub Recent Repositories <a href="https://github.com/Leyaaaan1?tab=repositories" target="_blank" class="view-all-btn" style="color: #fff">View all</a></h3>
       </div>
 
       <div class="github-repos">
@@ -216,6 +215,7 @@
             </div>
         </div>
 
+
             <h4>README</h4>
           <div class="readme-content markdown-body" style="min-height: 600px;">
             <div id="project-readme" class="repo-readme-content scrollable">
@@ -266,11 +266,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
 
-  /* Add some spacing between sections */
-  #about-section, #github-section, #projects-section {
-    padding-top: 20px;
-    margin-bottom: 30px;
-  }
+
 </style>
 
 <script type="module" src="script.js"></script>

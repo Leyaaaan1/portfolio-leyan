@@ -54,7 +54,6 @@ body {
 .highlight {
     font-weight: bold;
     color: #667eea;
-    background: rgba(255, 255, 255, 0.1);
     padding: 3px 8px;
     border-radius: 6px;
     backdrop-filter: blur(10px);
@@ -237,7 +236,6 @@ body {
 
 .contributions-section h4 {
     color: #667eea;
-    margin-bottom: 50px;
     font-size: 2rem;
 }
 
@@ -690,7 +688,6 @@ body {
         margin: 20px 10px;
     }
 
-    .github-contributions,
     .github-activity {
         padding: 20px;
     }
@@ -980,10 +977,8 @@ html {
     display: inline-block;
     background: linear-gradient(45deg, #667eea, #764ba2);
     color: white;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 25px;
-    text-decoration: none;
-    font-weight: 20;
     transition: all 0.3s ease;
 }
 

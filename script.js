@@ -115,9 +115,9 @@ const projectImages = {
     ],
     'OnlyJobsWeb': [
         'src/assets/onlyjobs/2nd.png',
+        'src/assets/onlyjobs/55.png',
         'src/assets/onlyjobs/4.png',
         'src/assets/onlyjobs/5s.png',
-        'src/assets/onlyjobs/55.png',
     ]
 };
 
@@ -216,7 +216,6 @@ async function fetchGitHubRepositories() {
 async function populateFeaturedRepository(repoInfo) {
     document.getElementById('project-title').textContent = repoInfo.name || 'Unknown Project';
     document.getElementById('project-description').textContent = repoInfo.description || 'No description available';    document.getElementById('project-stars').textContent = `⭐ ${repoInfo.stargazers_count || 0}`;
-    document.getElementById('project-forks').textContent = `🍴 ${repoInfo.forks_count || 0}`;
 
     const updatedAt = new Date(repoInfo.updated_at);
     const formattedDate = updatedAt.toLocaleDateString('en-US', {
@@ -376,7 +375,6 @@ function displayGitHubRepos(repos, reposElement) {
           ${languages}
           <span>Updated: ${formattedDate}</span>
           <span>⭐ ${repo.stargazers_count}</span>
-          <span>🍴 ${repo.forks_count}</span>
         </div>
       </div>
     `;
@@ -479,7 +477,6 @@ function updateRepositoryUI(repoInfo) {
     document.getElementById('project-title').textContent = repoInfo.name || 'Unknown Project';
     document.getElementById('project-description').textContent = repoInfo.description || 'No description available';
     document.getElementById('project-stars').textContent = `⭐ ${repoInfo.stargazers_count || 0}`;
-    document.getElementById('project-forks').textContent = `🍴 ${repoInfo.forks_count || 0}`;
 
     const projectLink = document.getElementById('project-link');
     if (projectLink && repoInfo.html_url) {
