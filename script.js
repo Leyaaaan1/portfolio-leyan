@@ -1,5 +1,4 @@
 // Imports styles
-import './public/style.css';
 
 // GitHub token from environment variable
 const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
