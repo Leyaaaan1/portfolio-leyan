@@ -19,9 +19,15 @@ let currentRepoImages = [];
 // Then update your projectImages object
 const projectImages = {
     'RidersHub': [
-        'src/assets/rider/riders-hub-3.jpg',
-        'src/assets/rider/riders-hub-3.jpg',
-        'src/assets/rider/riders-hub-3.jpg',
+
+        'src/assets/rider/rideui1.png',
+        'src/assets/rider/rideui2.png',
+        'src/assets/rider/rideui3.png',
+        'src/assets/rider/rideui4.png',
+        'src/assets/rider/rideui5.png',
+        'src/assets/rider/rideui6.png',
+        'src/assets/rider/rideui7.png',
+        'src/assets/rider/rideui8.png',
     ],
     'FreeFall Simulations': [
         'src/assets/freefall/riders-hub-3.jpg',
