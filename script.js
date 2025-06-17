@@ -92,27 +92,28 @@ const projectFeatures = {
     ]
 };
 const img = document.getElementById('project-main-image');
-img.src = 'public/freefall/freefall.gif';
+img.src = '/freefall/freefall.gif';
 img.style.display = 'block';
+
 const projectImages = {
     'RidersHub': [
-        'public/rider/rideui1.png',
-        'public/rider/rideui2.png',
-        'public/rider/rideui3.png',
-        'public/rider/rideui4.png',
-        'public/rider/rideui5.png',
-        'public/rider/rideui6.png',
-        'public/rider/rideui7.png',
-        'public/rider/rideui8.png',
+        '/rider/rideui1.png',
+        '/rider/rideui2.png',
+        '/rider/rideui3.png',
+        '/rider/rideui4.png',
+        '/rider/rideui5.png',
+        '/rider/rideui6.png',
+        '/rider/rideui7.png',
+        '/rider/rideui8.png',
     ],
     'FreeFallSimulations': [
-        'public/freefall/freefall.gif',
+        '/freefall/freefall.gif',
     ],
     'OnlyJobsWeb': [
-        'public/onlyjobs/2nd.png',
-        'public/onlyjobs/55.png',
-        'public/onlyjobs/4.png',
-        'public/onlyjobs/5s.png',
+        '/onlyjobs/2nd.png',
+        '/onlyjobs/55.png',
+        '/onlyjobs/4.png',
+        '/onlyjobs/5s.png',
     ]
 };
 
