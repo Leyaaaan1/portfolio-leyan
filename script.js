@@ -1,10 +1,6 @@
 
-const token = import.meta.env.VITE_GITHUB_TOKEN;
 
-const CONFIG = {
-    GITHUB_USERNAME: 'Leyaaaan1',
-    API_BASE_URL: 'https://api.github.com'
-};
+const token = '';
 
 let currentImageIndex = 0;
 let currentRepoImages = [];
