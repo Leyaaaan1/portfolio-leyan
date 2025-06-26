@@ -97,6 +97,7 @@ img.style.display = 'block';
 
 const projectImages = {
     'RidersHub': [
+        '/rider/rideui8.png',
         '/rider/rideui1.png',
         '/rider/rideui2.png',
         '/rider/rideui3.png',
@@ -104,7 +105,6 @@ const projectImages = {
         '/rider/rideui5.png',
         '/rider/rideui6.png',
         '/rider/rideui7.png',
-        '/rider/rideui8.png',
     ],
     'FreeFallSimulations': [
         '/freefall/freefall.gif',
