@@ -56,7 +56,7 @@ const projectFeatures = {
         {
             title: "5. Third‑Party Integrations",
             details: [
-                "Nominatim: Converted addresses to coordinates and barangays.",
+                "Nominatim: Converted addresses to coordinates, then resolved barangay names using PSGC datasets.",
                 "Bucket4j Rate Limits: 1 req/sec for Nominatim & Wikimedia; capped Mapbox under 50k/month.",
                 "Cloudinary: Stored and served rider map snapshots.",
                 "Mapbox: Generated static map previews of routes.",
