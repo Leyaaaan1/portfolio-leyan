@@ -29,37 +29,45 @@ const projectFeatures = {
         {
             title: "1. Geospatial & Mapping",
             details: [
-                "Haversine + PostGIS: Calculated straight‑line distances point A to point B"
+                "Haversine + PostGIS: Calculated straight-line distances between points."
             ]
         },
         {
             title: "2. Security",
             details: [
-                "JWT (JSON Web Tokens): Issued and validated tokens for token‑based user sessions."
+                "JWT: Handled token-based authentication and session validation."
             ]
         },
         {
             title: "3. Backend Architecture & API Design",
             details: [
-                "Spring Boot (MVC): Structured your code into Controllers, Services, Repositories.",
-                "DTOs (Data Transfer Objects): Created lightweight objects to pass only the needed data between client and server with validation.",
-                "RESTful Endpoints: Designed and exposed resource‑oriented HTTP APIs with spring security for authorization and authentication.",
-                "Postman Testing: sent requests, inspected responses, and debugged API flows."
+                "Spring Boot (MVC): Organized code using Controllers, Services, and Repositories.",
+                "DTOs: Passed validated, minimal data between client and server.",
+                "REST APIs: Built secure, resource-based endpoints with Spring Security.",
+                "Postman: Tested and debugged backend flows."
             ]
         },
         {
             title: "4. Data Persistence",
             details: [
-                "JPA/Hibernate + PostgreSQL: Modeled entities, wrote queries, and let Hibernate manage the SQL under the hood."
+                "JPA + PostgreSQL: Mapped entities and handled SQL using Hibernate."
             ]
         },
         {
             title: "5. Third‑Party Integrations",
             details: [
-                "Nominatim Geocoding API: Converted user‑entered addresses into latitude/longitude coordinates and convert it to barangay name using psgc datasets.",
-                "Bucket4j Rate‑Limiting: Throttled API calls to Nominatim so you stay within Nominatim usage policy policy.",
-                "Cloudinary: Uploaded, stored, and served rider map snapshots.",
-                "Mapbox Static Images API: Generated and captured map snapshots of rider locations for quick visual previews."
+                "Nominatim: Converted addresses to coordinates and barangays.",
+                "Bucket4j Rate Limits: 1 req/sec for Nominatim & Wikimedia; capped Mapbox under 50k/month.",
+                "Cloudinary: Stored and served rider map snapshots.",
+                "Mapbox: Generated static map previews of routes.",
+                "Wikimedia: Fetched up to 4 images per location in one request."
+            ]
+        },
+        {
+            title: "6. Redis Cache Optimization",
+            details: [
+                "Cached Nominatim & Wikimedia results to speed up responses.",
+                "Skipped redundant API calls to cut latency.",
             ]
         }
     ],
@@ -98,6 +106,7 @@ img.style.display = 'block';
 const projectImages = {
     'RidersHub': [
         '/rider/rideui8.png',
+        '/rider/rideui11.png',
         '/rider/rideui1.png',
         '/rider/rideui2.png',
         '/rider/rideui3.png',
