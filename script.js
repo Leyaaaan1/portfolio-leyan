@@ -105,15 +105,15 @@ img.style.display = 'block';
 
 const projectImages = {
     'RidersHub': [
-        '/rider/rideui8.png',
-        '/rider/rideui11.png',
-        '/rider/rideui1.png',
-        '/rider/rideui2.png',
-        '/rider/rideui3.png',
-        '/rider/rideui4.png',
-        '/rider/rideui5.png',
-        '/rider/rideui6.png',
-        '/rider/rideui7.png',
+        '/rider/ui1.png',
+        '/rider/ui2.png',
+        '/rider/ui3.png',
+        '/rider/ui4.png',
+        '/rider/ui5.png',
+        '/rider/ui6.png',
+        '/rider/ui7.png',
+        '/rider/ui7.png',
+
     ],
     'FreeFallSimulations': [
         '/freefall/freefall.gif',
